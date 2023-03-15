@@ -22,3 +22,11 @@ Finally, the pressure pulse is plotted for different times using the plt.plot fu
 The errors "divide by zero encountered in divide" and "invalid value encountered in divide" occur because in the calculation of pressure pulse P, the denominator 2*c*t_grid could become zero for some elements of t_grid. When this happens, the exp function evaluates to infinity, which then causes the P array to contain invalid values (NaNs).
 
 To fix this issue, the code is masking these invalid values using np.ma.masked_invalid function.
+
+### Plotted graph
+
+The plotted graph shows different colors for each t=0.1 and t=0.2 because the data is being plotted as a "line plot" and the different colors are used to distinguish between the data corresponding to different values of t. Specifically, the plt.plot() function is being used to plot the pressure pulse as a function of x at different times t, using different colors for each value of t.
+
+In the code, the pressure pulse P is a 2D array with dimensions (1000,3), where the first index corresponds to the x values, and the second index corresponds to the t values. To plot the data as a line plot, the plt.plot() function is called three times, once for each value of t. The x_grid array is used as the x values for the plot, and the corresponding pressure values are taken from the P array.
+
+Since each plt.plot() call corresponds to a different value of t, the label argument is used to specify a label for each line. The legend() function is then called to display the legend with the corresponding labels for each line.
