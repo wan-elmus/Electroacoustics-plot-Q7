@@ -17,6 +17,8 @@ x_grid, t_grid = np.meshgrid(x, t)
 # Calculate pressure pulse at each x and t value
 P = P_max * np.exp(-(t_grid/tau)**2) * np.exp(-(x_grid/(2*c*t_grid))**2)
 
+# With no masking and using x vals instead of x_grid vals
+
 # Plot pressure pulse for different times
 plt.figure(figsize=(10,5))
 plt.subplot(1,3,1)
